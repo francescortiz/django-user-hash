@@ -13,4 +13,4 @@ class Command(BaseCommand):
     help = u'Cleanup expired UserHash entries from the database.'
 
     def handle(self, *args, **options):
-        UserHash.objects.filter(expires__lt=timezone.now())
+        UserHash.objects.filter(expires__lt=timezone.now()).delete()
