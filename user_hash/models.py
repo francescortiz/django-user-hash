@@ -18,7 +18,7 @@ class UserHash(models.Model):
     - Hash expire
     """
     created = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     hash = models.CharField(max_length=255, unique=True)
     key = models.CharField(max_length=255)
     value = models.CharField(max_length=255, blank=True, default='')
